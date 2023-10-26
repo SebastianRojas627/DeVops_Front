@@ -1,0 +1,12 @@
+name: De Vops Frontend
+
+on:
+    push:
+        branches:
+            - 'main'
+
+jobs:
+    test:
+        name: Testing
+        runs-on: ubuntu-20.04
+        
