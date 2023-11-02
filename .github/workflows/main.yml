@@ -36,10 +36,10 @@ jobs:
       - name: Login Docker Hub
         uses: docker/login-action@v3
         with:
-          username: '${{ secrets.DOCKERHUB_USERNAME }}'
-          password: '${{ secrets.DOCKERHUB_PASSWORD }}'
-      - name: Generar imagen docker y push
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      - name: Push image to dockerhub
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: 'sebastian627/final_front:latest'
+          tags: sebastian627/final_front:latest
