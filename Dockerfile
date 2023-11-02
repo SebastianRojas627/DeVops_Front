@@ -1,8 +1,16 @@
+FROM node:14 as builder
+
+WORKDIR /app
+
+COPY package.json package-lock.json ./
+RUN npm install
+
+COPY . .
+RUN npm run build
+
 FROM nginx:alpine
 
-WORKDIR /usr/share/nginx/html
-
-COPY dist/ .
+COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 7002
 
