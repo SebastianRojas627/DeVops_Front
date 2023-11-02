@@ -2,7 +2,7 @@ FROM nginx:alpine
 
 WORKDIR /usr/share/nginx/html
 
-COPY build/ .
+COPY dist/ .
 
 EXPOSE 7002
 
