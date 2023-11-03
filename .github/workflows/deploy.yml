@@ -16,7 +16,7 @@ jobs:
         with:
           host: 107.21.6.61
           username: devops
-          key: 'certi pass 123'
+          password: 'certi pass 123'
           script: |
             sudo docker pull sebastian627/final_back:latest
             sudo docker pull sebastian627/final_front:latest
