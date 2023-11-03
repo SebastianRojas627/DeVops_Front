@@ -1,0 +1,24 @@
+name: Deploy to environment
+
+on:
+  push:
+    branches:
+      - prod
+  pull_request:
+
+jobs:
+  deploy_into_skynet:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/prod'
+    steps:
+      - name: Commands
+        uses: appleboy/ssh-action@master
+        with:
+          host: 107.21.6.61
+          username: devops
+          password: 'certi pass 123'
+          script: |
+            sudo docker pull sebastian627/final_back:latest
+            sudo docker pull sebastian627/final_front:latest
+            sudo docker compose down
+            sudo docker compose up
